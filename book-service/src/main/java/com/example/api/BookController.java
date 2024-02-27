@@ -1,18 +1,18 @@
 package com.example.api;
 
+import com.example.http.timer.Timer;
 import com.example.model.Author;
 import com.example.model.Book;
 import com.github.javafaker.Faker;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
+@Timer
 @RestController
 @RequestMapping("/api/book")
 public class BookController {
@@ -22,7 +22,6 @@ public class BookController {
     public List<Book> getAll() {
         return books;
     }
-
     @GetMapping("/random")
     public Book random() {
         Faker faker = new Faker();
